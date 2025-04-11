@@ -301,7 +301,6 @@
             100% { transform: translate(-50%, -50%) scale(3); opacity: 0; }
         }
 
-        /* Discord Button Styles */
         .discord-button {
             display: inline-flex;
             align-items: center;
@@ -468,7 +467,6 @@
     </footer>
 
     <script>
-        // Create background particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 50;
@@ -477,24 +475,20 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
-                // Random position
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 
-                // Random size
                 const size = Math.random() * 5 + 2;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
-                // Animation
                 particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
                 particle.style.animationDelay = `${Math.random() * 5}s`;
                 
                 particlesContainer.appendChild(particle);
                 
-                // Float animation
                 function float() {
                     const newPosX = Math.random() * 100;
                     const newPosY = Math.random() * 100;
@@ -510,7 +504,6 @@
             }
         }
         
-        // Mouse trail effect
         function createMouseTrail() {
             const trailCount = 10;
             const trails = [];
@@ -546,7 +539,6 @@
             updateTrails();
         }
         
-        // Click effect
         document.addEventListener('click', (e) => {
             const clickEffect = document.createElement('div');
             clickEffect.classList.add('click-effect');
@@ -576,13 +568,11 @@
             }, 2000);
         }
         
-        // Initialize
         window.addEventListener('load', () => {
             createParticles();
             createMouseTrail();
         });
         
-        // Make copy function available globally
         window.copyCode = copyCode;
     </script>
 </body>
