@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lancet Script - Ultimate Flinging Power</title>
     <style>
-        :root {
-            --primary: #6d28d9;
-            --secondary: #4c1d95;
-            --accent: #8b5cf6;
-            --background: #121212;
+       :root {
+            --primary: #059669;
+            --secondary: #047857;
+            --accent: #10b981;
+            --background: #0f1c18;
             --text: #f3f4f6;
-            --card-bg: #1e1e1e;
+            --card-bg: #132521;
         }
-
         * {
             margin: 0;
             padding: 0;
@@ -29,7 +28,7 @@
         }
 
         .cursor-trail {
-            position: absolute;
+            position: fixed; 
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -469,6 +468,7 @@
     </footer>
 
     <script>
+        // Create background particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 50;
@@ -477,20 +477,24 @@
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 
+                // Random position
                 const posX = Math.random() * 100;
                 const posY = Math.random() * 100;
                 particle.style.left = `${posX}%`;
                 particle.style.top = `${posY}%`;
                 
+                // Random size
                 const size = Math.random() * 5 + 2;
                 particle.style.width = `${size}px`;
                 particle.style.height = `${size}px`;
                 
+                // Animation
                 particle.style.animation = `float ${Math.random() * 10 + 10}s linear infinite`;
                 particle.style.animationDelay = `${Math.random() * 5}s`;
                 
                 particlesContainer.appendChild(particle);
                 
+                // Float animation
                 function float() {
                     const newPosX = Math.random() * 100;
                     const newPosY = Math.random() * 100;
@@ -506,6 +510,7 @@
             }
         }
         
+        // Mouse trail effect
         function createMouseTrail() {
             const trailCount = 10;
             const trails = [];
@@ -541,6 +546,7 @@
             updateTrails();
         }
         
+        // Click effect
         document.addEventListener('click', (e) => {
             const clickEffect = document.createElement('div');
             clickEffect.classList.add('click-effect');
@@ -562,6 +568,7 @@
             document.execCommand('copy');
             document.body.removeChild(textArea);
             
+            // Change button text temporarily
             const originalText = button.textContent;
             button.textContent = 'Copied!';
             setTimeout(() => {
@@ -569,11 +576,13 @@
             }, 2000);
         }
         
+        // Initialize
         window.addEventListener('load', () => {
             createParticles();
             createMouseTrail();
         });
         
+        // Make copy function available globally
         window.copyCode = copyCode;
     </script>
 </body>
